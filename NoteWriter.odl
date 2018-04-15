@@ -1,0 +1,42 @@
+// NoteWriter.odl : type library source for NoteWriter.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (NoteWriter.tlb).
+
+[ uuid(529A4AAA-D62F-4467-A8DF-A901D211E93E), version(1.0) ]
+library NoteWriter
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CNoteWriterDoc
+	
+	[ uuid(AE8F16F7-FD1A-498B-9CF2-485E36504266) ]
+	dispinterface INoteWriter
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CNoteWriterDoc)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CNoteWriterDoc)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CNoteWriterDoc
+	
+	[ uuid(B7C43ED4-A578-4C3E-887A-CD234867CAB9) ]
+	coclass NoteWriterDocument
+	{
+		[default] dispinterface INoteWriter;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

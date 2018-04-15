@@ -1,0 +1,30 @@
+# Microsoft Developer Studio Generated Dependency File, included by Icons.mak
+
+.\Icons.cpp : \
+	".\Icons.h"\
+	".\StdAfx.h"\
+	
+
+.\Icons.rc : \
+	".\AIRPLANE.ICO"\
+	".\ARROW_DN.ICO"\
+	".\ARROW_UP.ICO"\
+	".\BELL.ICO"\
+	".\BOMB.ICO"\
+	".\DANGER.ICO"\
+	".\DISGUISE.ICO"\
+	".\ENVELOPE.ICO"\
+	".\EYES.ICO"\
+	".\HWCONFIG.ICO"\
+	".\INFO.ICO"\
+	".\LITE.ICO"\
+	".\PHONE.ICO"\
+	".\PIG_BANK.ICO"\
+	".\res\Icons.rc2"\
+	".\SWIRL.ICO"\
+	".\USA_MAP.ICO"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

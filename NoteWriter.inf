@@ -1,0 +1,117 @@
+[Version] 
+Signature=$CHICAGO$ 
+AdvancedINF=2.5,%ADVPKPRMPT%
+
+[DestinationDirs] 
+NoteWriter=49000
+InfFile=17
+DeleteCab=25,occache
+
+[DefaultInstall] 
+CheckAdminRights=1
+CustomDestination=MyCustomDestination
+UpdateInis=AddLink
+CopyFiles=NoteWriter, InfFile
+AddReg=AddRegistry
+
+[DefaultInstall.NT] 
+CheckAdminRights=1
+CustomDestination=MyCustomDestination
+UpdateInis=AddLinkNT
+CopyFiles=NoteWriter, InfFile
+AddReg=AddRegistry
+
+[MyCustomDestination]
+49010=ProgramFilesDestination,21
+49000,49001,49002,49003=PackageDestination49000,1
+49017=SourceDir
+
+[UninstallDestination]
+49010=ProgramFilesDestination,5
+49000=UninstallDestination49000,5
+
+[ProgramFilesDestination]
+HKLM,software\microsoft\windows\currentversion,ProgramFilesDir,"%InstallPrompt%","%49010%\%DefaultDir%"
+
+[PackageDestination49000]
+HKLM,Software\NoteWriter,InstallDir,%InstallPrompt%,"%49010%\%DefaultDir%"
+
+[UninstallDestination49000]
+HKLM,Software\NoteWriter,InstallDir,%InstallPrompt%,"%49010%\%DefaultDir%"
+
+[AddLinkNT]
+setup.ini, progman.groups,, "NoteWriter="
+setup.ini, NoteWriter,, """%NoteWriter_LINK%"", """"""%49002%\NoteWriter.EXE"""""""
+
+[AddLink]
+setup.ini, progman.groups,, "NoteWriter="
+setup.ini, NoteWriter,, """%NoteWriter_LINK%"", ""%49002%\NoteWriter.EXE"""
+
+[RemoveLink]
+setup.ini, progman.groups,, "NoteWriter="
+setup.ini, NoteWriter,, """%NoteWriter_LINK%"""
+
+[AddRegistry]
+HKLM,Software\NoteWriter,InstallDir,,"%49001%"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NoteWriter","DisplayName",,%DiskName%
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NoteWriter","UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\NoteWriter.inf, Uninstall"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NoteWriter","RequiresIESysFile",,"0"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,"NoteWriter",,"RunDll32 advpack.dll,LaunchINFSection %17%\NoteWriter.inf, RemoveCabinet"
+
+[RemoveRegistry]
+HKLM,"SOFTWARE\NoteWriter"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NoteWriter"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,"NoteWriter"
+
+[RemoveCabinet]
+DelFiles=DeleteCab
+
+[DeleteCab]
+NoteWriterSetup.exe
+
+[NoteWriter]
+Files.txt
+icons.dll
+License.txt
+NoteWriter.cnt
+NoteWriter.exe
+NoteWriter.hlp
+Readme.txt
+
+[InfFile]
+NoteWriter.inf
+
+[Uninstall]
+BeginPrompt=BeginPromptSection
+EndPrompt=EndPromptSection
+CheckAdminRights=1
+CustomDestination=UninstallDestination
+UpdateInis=RemoveLink
+DelFiles=NoteWriter
+DelReg=RemoveRegistry
+DelDirs=DeleteDirs
+SmartReboot=I
+Cleanup=1
+
+[BeginPromptSection]
+Prompt=%BeginPrompt%
+ButtonType=YESNO
+Title=%DiskName%
+
+[EndPromptSection]
+Prompt=%EndPrompt%
+
+[DeleteDirs]
+%49000%
+
+[SourceDisksNames] 
+1=%DiskName%,NoteWriter,0
+
+[Strings] 
+ADVPKPRMPT="The correct version of Advpack.dll was not found, installation halted."
+DiskName="NoteWriter"
+InstallPrompt="Where would you like to install NoteWriter?"
+BeginPrompt="Are you sure you want to remove NoteWriter?"
+EndPrompt="NoteWriter has been removed."
+DefaultDir="NoteWriter"
+NoteWriter_LINK="NoteWriter"

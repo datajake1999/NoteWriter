@@ -1,0 +1,7 @@
+Building NoteWriter.
+You can build NoteWriter from the command line by setting the visual studio environment variables and running build.bat. To set up the environment variables, launch the vcvars32.bat file that is found in the vc98\bin directory that is in your visual studio installation folder.
+To write the build log to a text file, type "MakeNoteWriter.bat > filename.txt", where "filename" is the name of the output log file.
+If you wish to build from the windows gui, you can do it 1 of 2 ways.
+1. If you have your system set up to launch the visual studio environment variables when a command prompt is first opened, you can run build.bat from windows explorer.
+If you wish to save the build log to a file, run build with log.bat. For some reason, you can't seem to run a batch file that saves its output automatically from the command line, you must run it from windows explorer.
+2. You can open the project files in visual studio and build them individually.

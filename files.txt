@@ -1,0 +1,10 @@
+The following files are included in the NoteWriter distribution:
+
+NoteWriter.exe: NoteWriter executable
+NoteWriter.hlp: NoteWriter help file
+NoteWriter.cnt: Contents index for help file
+Icons.dll: Icons library
+NoteWriter.inf: NoteWriter install script
+readme.txt: NoteWriter readme
+license.txt: NoteWriter license
+files.txt: This file
